@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*fonte importada do google, insere aqui para refletir para refletir quando for declarar na variavel dentro do root*/
+
+@font-face {
+    font-family: 'android'; /* insere o nome android para depois declarar na variavel e assim refletir no documento */
+    src: url("/fontes/IDroid.otf") format("opentype"); 
+    font-weight: normal;; /* fonte baixada, delarada aqui para refletir quando for declarar na variavel dentro do root  */
+}
+
+:root { /* CONFIGURAÇÕES GLOBAIS, ROOT é a raiz do documento, o que for declarado aqui vai refletir para todo o documento */
+    --cor0:#ebe5c5;
+    --cor1:#83e1ad;
+    --cor2:#3ddc84;
+    --cor3:#2fa866;
+    --cor4:#1a5c37;
+    --cor5:#063d1e;
+
+    --fonte-padrao: arial, verdana, helvetica, sans-serif;
+    --fonte-destaque: "Bebas Neue", sans-serif; /*bebas neue,remete a fonte importada do google*/
+    --font-android:'android', 'cursive';  /*android, que foi inserido no @font-face */
+}
+
+*{ /* CONFIGURAÇÕES GLOBAIS - Tira os espaçoes das caixas*/
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+body {
+    background-color: var(--cor0); /* background-color, vai ser a cor de fundo da caixa*/
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after{
+    content: '\00A0\1F517'; /*Inserindo emoji de link */
+
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /* degrade no cabeçalho */
+    text-align: center;
+    padding-top: 30px;
+    min-height: 150px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-weight: normal;
+    margin-bottom: 30px;
+    font-size: 3em; /* tamanho da fonte  */ 
+    text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.226); /*Sombra no texto */
+}
+
+header > p {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 1.2em;
+    max-width: 600px; /* largura máxima que um elemento pode ter. */
+    margin: auto; /*centralizar um elemento */
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.712);
+
+
+
+
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px 0px black; /*Sombra na caixa */
+}
+
+
+nav > a {
+    color: var(--cor1);
+    padding: 5px; /* dá espaço */
+    border-radius: 5px; /* arredonda as laterais */
+    text-decoration:none; /* Tira o sublinhado */
+    font-weight: bold; /* negrito */
+    transition-duration: 0.5s;
+}
+
+nav > a:hover{
+    background-color: var(--cor3);
+    color: var(--cor5);
+
+}
+
+main {
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.410);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main  h1 {
+    color: #1a5c37;
+    font-family: var(--font-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main  h2{
+    font-family: var(--font-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1,), transparent); /*Degrade to right cor especiica ate ficar transparente*/
+    text-indent: 8px;
+
+}
+
+main p { /*Não coloca o > pois dentro do main pode ter um paragrafo dentro do article e a formatação não chegue, e sem o > vai servir para todos os P´s dentro do Main */
+
+    margin: 15px 0px; /*Aumenta a margem do Titulo para o paragrafo */
+    text-align: justify;  /*Justificar o texto */
+    text-indent: 30px; /*recuo no inicio do paragrafo */ 
+    font-size: 1em; /* Tamanho da fonte*/
+    line-height: 2em; /*Espaçamento entre as linhas*/
+}
+
+main strong{ /*Formatar tudo que estiver em negrito*/
+    color: var(--cor4);
+    font-weight: bold;
+    
+}
+
+main a {
+    text-decoration: none; /* Tira o sublinhado do link*/
+    color: var(--cor4);
+    font-weight: bold;
+    background-color: var(--cor1);
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+main a:hover{
+    text-decoration: underline; /*Vai aparecer o sublinhado quando passar o mouse*/
+}
+main img {
+    width: 100%;
+}
+
+main img.pequena {
+    max-width: 350px;
+    margin: auto;
+    display: block;
+
+}
+
+div.video{
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px ;  /* 30px Dá espaço entre a caixa de video e o "quer saber mais" e o -20px vai juntar nas extremidades*/
+    padding: 20px;
+    padding-bottom: 58%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.507);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /*-10 para juntar a margin (verde escuro)com o background color (verde claro) */
+    border-radius: 10px 10px 0px 0px; /* Deixa só as bordas superiores arendondadas*/
+
+}
+
+aside > ul {
+    list-style-position: inside; /* Recua as bolinhas para dentro do background color verde*/
+    columns: 2; /*Divide a lista em duas colunas*/
+    list-style-type: "\2714\00A0"; /* "\2714" é o emoji de check E O \00A0 É PARA DÁ ESPAÇO DO CHECK P/ LISTA*/
+
+}
+
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
